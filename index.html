@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IronClad | Premium Roofing Systems</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">IRON<span>CLAD</span></div>
+                <ul class="nav-links">
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#commitment">About Us</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#testimonials">Reviews</a></li>
+                    <li><a href="#footer" class="btn btn-primary" style="padding: 0.5rem 1.5rem; font-size: 0.8rem;">Contact Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="hero">
+        <div class="container hero-content">
+            <div class="hero-text">
+                <h1>PREMIUM IRON SHEETS <br> FOR EVERY BUILD</h1>
+                <p>Factory-direct roofing solutions engineered for durability. 15-year warranty on all pre-painted and galvanized sheets.</p>
+                <a href="#products" class="btn btn-primary">VIEW CATALOGUE</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="commitment">
+        <div class="container commitment-slider-wrapper">
+            
+            <div class="full-slide active">
+                <div class="slide-text">
+                    <h2>Our Commitment to Quality</h2>
+                    <p>We don't just sell metal; we sell peace of mind. Every sheet is manufactured to strict international standards (KEBS Certified).</p>
+                    <p>Whether for residential homes or industrial warehouses, our color stays vibrant and our steel remains rust-free.</p>
+                    <a href="#footer" class="btn" style="background: white; color: var(--color-dark);">GET A QUOTE</a>
+                </div>
+                <div class="slide-visual">
+                    <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=600&q=80" alt="Team Inspection">
+                </div>
+            </div>
+
+            <div class="full-slide">
+                <div class="slide-text">
+                    <h2>Total Pricing Transparency</h2>
+                    <p>We hate hidden fees as much as you do. We quote by the exact meter, so you only pay for what covers your roof.</p>
+                    <p>No "approximate" measurements. No "wastage fees." Just honest pricing for honest work.</p>
+                    <a href="#products" class="btn" style="background: white; color: var(--color-dark);">SEE PRICES</a>
+                </div>
+                <div class="slide-visual">
+                    <div class="big-icon">
+                        <i class="fas fa-search-dollar"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="full-slide">
+                <div class="slide-text">
+                    <h2>True Gauge Guarantee</h2>
+                    <p>Construction fraud is real. Unscrupulous sellers often label Gauge 32 as Gauge 30.</p>
+                    <p>We invite you to bring a micrometer to our warehouse. If we say it's Gauge 30, it IS Gauge 30. We stand by our thickness.</p>
+                    <a href="#footer" class="btn" style="background: white; color: var(--color-dark);">VISIT US</a>
+                </div>
+                <div class="slide-visual">
+                    <div class="big-icon">
+                        <i class="fas fa-ruler-combined"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="full-slide">
+                <div class="slide-text">
+                    <h2>Nationwide Delivery</h2>
+                    <p>Your location shouldn't limit your quality. We deliver from our Nairobi factory floor to your site in Kisumu, Mombasa, or Eldoret.</p>
+                    <p>Standard orders are processed and delivered within 48 hours.</p>
+                    <a href="#footer" class="btn" style="background: white; color: var(--color-dark);">CONTACT US</a>
+                </div>
+                <div class="slide-visual">
+                    <div class="big-icon">
+                        <i class="fas fa-truck-fast"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="commitment-dots">
+                <span class="c-dot active" onclick="setCommitmentSlide(1)"></span>
+                <span class="c-dot" onclick="setCommitmentSlide(2)"></span>
+                <span class="c-dot" onclick="setCommitmentSlide(3)"></span>
+                <span class="c-dot" onclick="setCommitmentSlide(4)"></span>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="products">
+        <div class="container">
+            <h2 class="section-title">Product Offerings</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="https://placehold.co/400x300/E0E0E0/333333?text=Galvanized+Box" alt="Galvanized Sheet">
+                    <div class="product-info">
+                        <h3>Galvanized Sheet</h3>
+                        <p>Classic silver finish. Rust-proof coating suited for all weather conditions. Available in Gauge 30 & 32.</p>
+                        <button class="btn btn-primary">View Specs</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://placehold.co/400x300/7DA0CA/FFFFFF?text=Pre-Painted+Blue" alt="Pre-painted Sheet">
+                    <div class="product-info">
+                        <h3>Royal Blue (Gloss)</h3>
+                        <p>High-gloss finish that resists fading. The most popular choice for modern residential roofing.</p>
+                        <button class="btn btn-primary">View Specs</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://placehold.co/400x300/8B0000/FFFFFF?text=Tile+Profile+Red" alt="Tile Profile">
+                    <div class="product-info">
+                        <h3>Tile Profile (Red)</h3>
+                        <p>The aesthetic look of clay tiles with the durability of steel. Matte finish available.</p>
+                        <button class="btn btn-primary">View Specs</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://placehold.co/400x300/333333/FFFFFF?text=Charcoal+Grey" alt="Charcoal Sheet">
+                    <div class="product-info">
+                        <h3>Charcoal Grey</h3>
+                        <p>Premium matte finish for a sophisticated, executive look. 15-year fade warranty.</p>
+                        <button class="btn btn-primary">View Specs</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials">
+        <div class="container">
+            <h2 class="section-title" style="color: var(--color-white);">Client Feedback</h2>
+            <div class="testimonial-slider">
+                
+                <div class="testimonial-slide active">
+                    <p class="testimonial-quote">"The gauge quality is exactly as advertised. Delivered to my site in Nakuru within 48 hours."</p>
+                    <p class="testimonial-author">- Simon K.</p>
+                    <p class="testimonial-role">Contractor</p>
+                </div>
+
+                <div class="testimonial-slide">
+                    <p class="testimonial-quote">"Best pricing for the Charcoal Grey matte finish. The house looks executive."</p>
+                    <p class="testimonial-author">- Joy Wanjiku</p>
+                    <p class="testimonial-role">Homeowner</p>
+                </div>
+
+                <div class="testimonial-slide">
+                    <p class="testimonial-quote">"Professional team. They calculated exactly how many meters I needed so there was zero waste."</p>
+                    <p class="testimonial-author">- David O.</p>
+                    <p class="testimonial-role">Developer</p>
+                </div>
+
+                <div class="testimonial-dots">
+                    <span class="dot active" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                    <span class="dot" onclick="currentSlide(3)"></span>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+
+    <footer id="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col footer-about">
+                    <h3 style="font-size: 1.8rem;">IRON<span>CLAD</span></h3>
+                    <p>Building the nation, one roof at a time. Quality you can trust, prices you can afford.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-col footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#hero">Home</a></li>
+                        <li><a href="#products">Catalogue</a></li>
+                        <li><a href="#">Distributors</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Contact Us</h3>
+                    <div class="contact-item">
+                        <i class="fas fa-phone-alt" style="color: var(--color-mid-blue);"></i>
+                        <span>+254 700 123 456</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope" style="color: var(--color-mid-blue);"></i>
+                        <span>sales@ironclad.co.ke</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt" style="color: var(--color-mid-blue);"></i>
+                        <span>Mombasa Road, Nairobi</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                &copy; 2024 IronClad Systems. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
