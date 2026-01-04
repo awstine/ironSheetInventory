@@ -1,0 +1,400 @@
+/* Tablet Styles (min-width: 768px) */
+@media (min-width: 768px) {
+    /* Container */
+    .container {
+        padding: 0 2rem;
+    }
+    
+    /* Header */
+    .desktop-nav {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+    }
+    
+    .mobile-menu-btn {
+        display: none;
+    }
+    
+    /* Hero */
+    .hero-section {
+        padding-top: 8rem;
+        padding-bottom: 8rem;
+    }
+    
+    .hero-title {
+        font-size: 3rem;
+    }
+    
+    .hero-buttons {
+        flex-direction: row;
+        gap: 1rem;
+    }
+    
+    /* Stats */
+    .stats-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1rem;
+    }
+    
+    .stat-number {
+        font-size: 2.5rem;
+    }
+    
+    /* About */
+    .mission-vision-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+    
+    .values-grid {
+        grid-template-columns: repeat(5, 1fr);
+        gap: 1rem;
+    }
+    
+    /* Projects */
+    .projects-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+    }
+    
+    /* Work */
+    .work-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+    
+    /* Partners */
+    .partners-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1.5rem;
+    }
+    
+    /* Footer */
+    .footer-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+    }
+    
+    .footer-bottom {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+/* Desktop Styles (min-width: 1024px) */
+@media (min-width: 1024px) {
+    /* Container */
+    .container {
+        max-width: 1200px;
+        padding: 0 2rem;
+    }
+    
+    /* Hero */
+    .hero-section {
+        padding-top: 10rem;
+        padding-bottom: 10rem;
+    }
+    
+    .hero-title {
+        font-size: 3.75rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.25rem;
+    }
+    
+    /* Stats */
+    .stats-section {
+        padding: 4rem 0;
+    }
+    
+    .stat-number {
+        font-size: 3rem;
+    }
+    
+    /* Sections */
+    .about-section,
+    .projects-section,
+    .work-section {
+        padding: 6rem 0;
+    }
+    
+    .partners-section {
+        padding: 5rem 0;
+    }
+    
+    .section-title {
+        font-size: 2.25rem;
+    }
+    
+    /* Cards */
+    .mission-vision-card {
+        padding: 2.5rem;
+    }
+    
+    .project-card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .work-card {
+        padding: 2.5rem;
+    }
+    
+    /* Footer */
+    .site-footer {
+        padding-top: 6rem;
+        padding-bottom: 3rem;
+    }
+}
+
+/* Large Desktop Styles (min-width: 1280px) */
+@media (min-width: 1280px) {
+    /* Container */
+    .container {
+        max-width: 1280px;
+        padding: 0 2.5rem;
+    }
+    
+    /* Hero */
+    .hero-title {
+        font-size: 4.5rem;
+    }
+    
+    /* Stats */
+    .stat-number {
+        font-size: 3.5rem;
+    }
+}
+
+/* Small Mobile Styles (max-width: 375px) */
+@media (max-width: 375px) {
+    /* Container */
+    .container {
+        padding: 0 1rem;
+    }
+    
+    /* Header */
+    .logo {
+        font-size: 1.25rem;
+    }
+    
+    .logo i {
+        font-size: 1.75rem;
+    }
+    
+    /* Hero */
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+    
+    .btn-primary,
+    .btn-secondary {
+        padding: 0.625rem 1.5rem;
+        font-size: 0.875rem;
+    }
+    
+    /* Stats */
+    .stats-grid {
+        gap: 1.5rem;
+    }
+    
+    .stat-number {
+        font-size: 1.75rem;
+    }
+    
+    .stat-label {
+        font-size: 0.75rem;
+    }
+    
+    /* About */
+    .section-title {
+        font-size: 1.5rem;
+    }
+    
+    .mission-vision-card {
+        padding: 1.5rem;
+    }
+    
+    .values-grid {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+    }
+    
+    /* Projects */
+    .project-image {
+        height: 10rem;
+    }
+    
+    .project-image i {
+        font-size: 2.5rem;
+    }
+    
+    /* Work */
+    .work-card {
+        padding: 1.5rem;
+    }
+    
+    .work-card-title {
+        font-size: 1.25rem;
+    }
+    
+    /* Partners */
+    .partners-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .partner-card {
+        padding: 1.25rem;
+    }
+    
+    .partner-card i {
+        font-size: 1.75rem;
+    }
+    
+    /* Footer */
+    .footer-bottom {
+        text-align: left;
+    }
+    
+    .footer-links {
+        justify-content: flex-start;
+    }
+}
+
+/* Landscape Mobile Styles */
+@media (max-height: 600px) and (orientation: landscape) {
+    .hero-section {
+        padding-top: 5rem;
+        padding-bottom: 4rem;
+        min-height: auto;
+    }
+    
+    .hero-title {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 0.875rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .hero-buttons {
+        flex-direction: row;
+        gap: 0.75rem;
+    }
+    
+    .btn-primary,
+    .btn-secondary {
+        padding: 0.5rem 1.25rem;
+        font-size: 0.75rem;
+    }
+    
+    .scroll-indicator {
+        bottom: 1rem;
+    }
+}
+
+/* High DPI Screens */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    /* Ensure crisp images and icons */
+    .hero-bg-image {
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+    }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+    html {
+        scroll-behavior: auto;
+    }
+    
+    .badge,
+    .hero-title,
+    .hero-subtitle,
+    .hero-buttons {
+        opacity: 1;
+        animation: none;
+    }
+    
+    .water-droplets::before,
+    .water-droplets::after {
+        animation: none;
+    }
+    
+    .scroll-indicator {
+        animation: none;
+    }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --color-gray-50: #111827;
+        --color-gray-100: #1f2937;
+        --color-gray-200: #374151;
+        --color-gray-300: #4b5563;
+        --color-gray-400: #6b7280;
+        --color-gray-500: #9ca3af;
+        --color-gray-600: #d1d5db;
+        --color-gray-700: #e5e7eb;
+        --color-gray-800: #f3f4f6;
+        --color-gray-900: #f9fafb;
+    }
+    
+    body {
+        background-color: #0f172a;
+        color: var(--color-gray-300);
+    }
+    
+    .site-header {
+        background-color: rgba(15, 23, 42, 0.95);
+    }
+    
+    .about-section,
+    .work-section {
+        background-color: #1e293b;
+    }
+    
+    .projects-section,
+    .partners-section {
+        background-color: #1e293b;
+    }
+    
+    .mission-vision-card,
+    .value-card,
+    .project-card,
+    .work-card,
+    .partner-card {
+        background-color: #334155;
+        border-color: #475569;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+        color: var(--color-gray-100);
+    }
+    
+    .card-text,
+    .project-description,
+    .work-item p,
+    .partners-subtitle,
+    .footer-description {
+        color: var(--color-gray-400);
+    }
+}
