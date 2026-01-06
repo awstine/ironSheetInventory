@@ -1,3 +1,53 @@
+/* =========================
+   HERO SLIDER (BACKGROUND)
+========================= */
+.hero-section {
+  position: relative;
+  overflow: hidden;
+}
+
+/* slider behind everything */
+.hero-slider {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+/* slides */
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.hero-slide.active {
+  opacity: 1;
+}
+
+/* overlay above slides but below text */
+.hero-bg-overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 1;
+}
+
+/* hero content above overlay */
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+/* =========================
+   RESPONSIVE STYLES
+========================= */
+/* Base Styles (Mobile First) */
 /* Small-Medium Screen Styles (min-width: 500px) */
 @media (min-width: 500px) {
     .partners-grid {
@@ -29,7 +79,7 @@
     .desktop-nav {
         display: flex;
         align-items: center;
-        gap: 2rem;
+        gap: 1.5rem;
     }
     
     .mobile-menu-btn {
@@ -130,7 +180,7 @@
     }
 
     .desktop-nav {
-        gap: 2.5rem;
+        gap: 2rem;
     }
 
     .hero-subtitle {
