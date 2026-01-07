@@ -1207,3 +1207,74 @@ a {
         right: 2rem;
     }
 }
+
+/* Contact Modal Styles */
+.hidden {
+  display: none;
+}
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 1rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+.modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+.modal-content {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  max-width: 500px;
+  width: 100%;
+  position: relative;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  transform: translateY(-20px);
+  transition: transform 0.3s ease;
+}
+.modal-overlay.active .modal-content {
+  transform: translateY(0);
+}
+.modal-close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 2rem;
+  line-height: 1;
+  font-weight: bold;
+  color: #555;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.modal-header { margin-bottom: 1.5rem; text-align: center; }
+.modal-title { font-size: 1.75rem; font-weight: 600; color: #333; margin-bottom: 0.5rem; }
+.modal-subtitle { font-size: 1rem; color: #666; }
+.form-group { margin-bottom: 1rem; }
+.form-group label { display: block; margin-bottom: 0.5rem; font-weight: 500; color: #444; }
+.form-group input, .form-group textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-family: inherit;
+}
+.form-group input:focus, .form-group textarea:focus {
+  outline: none;
+  border-color: #0d6efd; /* A generic primary blue */
+  box-shadow: 0 0 0 2px rgba(13, 110, 253, 0.25);
+}
+#form-feedback { text-align: center; padding: 2rem 0; }
+#form-submit-btn { width: 100%; }

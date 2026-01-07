@@ -14,6 +14,29 @@ document.addEventListener('DOMContentLoaded', () => {
     const backToTopBtn = document.getElementById('back-to-top');
     const mobileNavLinks = document.querySelectorAll('.mobile-nav-link, .mobile-nav-cta');
 
+    // ==========================
+    // ✅ HERO BACKGROUND SLIDER
+    // ==========================
+    const slides = document.querySelectorAll('.hero-slide');
+    if (slides.length > 0) {
+        // Respect reduced motion
+        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        if (!reduceMotion) {
+            let currentSlide = 0;
+            const intervalMs = 5000; // change time here (5000 = 5 seconds)
+
+            setInterval(() => {
+                slides[currentSlide].classList.remove('active');
+                currentSlide = (currentSlide + 1) % slides.length;
+                slides[currentSlide].classList.add('active');
+            }, intervalMs);
+        } else {
+            // If reduced motion is enabled, just show first slide
+            slides.forEach((s, i) => s.classList.toggle('active', i === 0));
+        }
+    }
+
     // --- Header Scroll & Back to Top Button ---
     const handleScroll = () => {
         // Add 'scrolled' class to header for dynamic styling
@@ -84,4 +107,71 @@ document.addEventListener('DOMContentLoaded', () => {
             observer.observe(item);
         });
     });
+
+    // ==========================
+    // ✅ CONTACT MODAL
+    // ==========================
+    const modal = document.getElementById('contact-modal');
+    const openModalBtns = document.querySelectorAll('.open-modal-btn');
+    const closeModalBtn = document.getElementById('close-modal-btn');
+
+    // Form elements
+    const formContainer = document.getElementById('form-container');
+    const form = document.getElementById('contact-form');
+    const formFeedback = document.getElementById('form-feedback');
+    const submitBtn = document.getElementById('form-submit-btn');
+
+    function openModal(e) {
+        e.preventDefault();
+        if (modal) modal.classList.add('active');
+    }
+
+    function closeModal() {
+        if (modal) modal.classList.remove('active');
+    }
+
+    openModalBtns.forEach(btn => {
+        btn.addEventListener('click', openModal);
+    });
+
+    if (closeModalBtn) {
+        closeModalBtn.addEventListener('click', closeModal);
+    }
+
+    if (modal) {
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeModal();
+        });
+    }
+
+    // --- Form Submission Logic ---
+    if (form) {
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+            const formData = new FormData(form);
+            const object = Object.fromEntries(formData);
+            const json = JSON.stringify(object);
+
+            submitBtn.textContent = "Please wait...";
+            submitBtn.disabled = true;
+
+            fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                body: json
+            })
+            .then(async (response) => {
+                if (response.status == 200) {
+                    formContainer.classList.add('hidden');
+                    formFeedback.classList.remove('hidden');
+                } else { throw new Error('Form submission failed'); }
+            })
+            .catch(error => {
+                console.error(error);
+                alert('Sorry, there was an error sending your message. Please try again later.');
+                submitBtn.textContent = "Submit Message";
+                submitBtn.disabled = false;
+            });
+        });
+    }
 });
