@@ -174,4 +174,59 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+    // ==========================
+// ✅ PARTNERS SECTION - Expandable Cards
+// ==========================
+const partnerCards = document.querySelectorAll('.partner-card');
+
+partnerCards.forEach(card => {
+    card.addEventListener('click', function(e) {
+        // Don't trigger if clicking on links or buttons inside
+        if (e.target.tagName === 'A' || e.target.tagName === 'BUTTON') {
+            return;
+        }
+        
+        const isActive = this.classList.contains('active');
+        
+        // Close all other cards
+        partnerCards.forEach(otherCard => {
+            otherCard.classList.remove('active');
+        });
+        
+        // If the clicked card wasn't active, open it
+        if (!isActive) {
+            this.classList.add('active');
+            
+            // Scroll the card into view if it's not fully visible
+            const cardTop = this.getBoundingClientRect().top;
+            const cardBottom = this.getBoundingClientRect().bottom;
+            const viewportHeight = window.innerHeight;
+            
+            if (cardBottom > viewportHeight || cardTop < 0) {
+                this.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'center'
+                });
+            }
+        }
+    });
+});
+
+// Close partner cards when clicking outside
+document.addEventListener('click', function(e) {
+    if (!e.target.closest('.partner-card')) {
+        partnerCards.forEach(card => {
+            card.classList.remove('active');
+        });
+    }
+});
+
+// Close partner cards when pressing Escape key
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        partnerCards.forEach(card => {
+            card.classList.remove('active');
+        });
+    }
+});
 });
