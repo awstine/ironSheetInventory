@@ -1279,15 +1279,15 @@ a {
 #form-feedback { text-align: center; padding: 2rem 0; }
 #form-submit-btn { width: 100%; }
 
-/* Updated Partners Section Styles */
+/* Partners Section */
 .partners-section {
     padding: 5rem 0;
-    background-color: var(--color-white);
+    background-color: var(--color-lightbg);
 }
 
 .partners-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(1, 1fr);
     gap: 1.5rem;
     margin-top: 3rem;
 }
@@ -1298,186 +1298,115 @@ a {
     }
 }
 
+/* Card Container */
 .partner-card {
     background-color: var(--color-white);
-    border: 2px solid var(--color-lightaccent);
+    border: 2px solid var(--color-white); /* Invisible border initially */
     border-radius: var(--radius-xl);
-    box-shadow: var(--shadow-sm);
-    transition: all var(--transition-default);
+    box-shadow: var(--shadow-md);
     cursor: pointer;
-    position: relative;
     overflow: hidden;
-    opacity: 1 !important;
+    transition: all 0.3s ease;
+    
+    /* Flex column ensures content expands downwards */
+    display: flex;
+    flex-direction: column; 
+    align-items: stretch; 
+}
+
+.partner-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
 }
 
 .partner-card.active {
     border-color: var(--color-accent);
-    box-shadow: var(--shadow-lg);
-    transform: translateY(-4px);
+    box-shadow: var(--shadow-xl);
+    transform: translateY(-5px);
 }
 
-.partner-card-inner {
+/* Header: Icon + Title */
+.partner-header {
     padding: 1.5rem;
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 1rem;
+    background-color: var(--color-white);
+    z-index: 2; /* Keeps header above content during animation */
 }
 
 .partner-icon {
     width: 3.5rem;
     height: 3.5rem;
-    background: linear-gradient(135deg, var(--color-accent), var(--color-secondary));
+    background-color: var(--color-lightbg);
+    color: var(--color-primary);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0 auto;
+    font-size: 1.75rem;
+    transition: all 0.3s ease;
 }
 
-.partner-icon i {
-    font-size: 1.5rem;
+.partner-card:hover .partner-icon,
+.partner-card.active .partner-icon {
+    background-color: var(--color-primary);
     color: var(--color-white);
 }
 
-.partner-name {
+.partner-title {
     font-size: 1.125rem;
-    color: var(--color-primary);
     font-weight: 700;
+    color: var(--color-gray-800);
     margin: 0;
 }
 
-.partner-logo-container {
-    width: 100%;
-    height: 4rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0.5rem;
+/* Arrow Indicator */
+.partner-arrow {
+    color: var(--color-accent);
+    font-size: 1.25rem;
+    line-height: 1; /* Prevents extra space */
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.partner-card.active .partner-arrow {
+    transform: rotate(180deg);
+}
+
+/* Hidden Content: Logos */
+.partner-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     background-color: var(--color-gray-50);
-    border-radius: var(--radius-md);
-    border: 1px solid var(--color-gray-200);
+}
+
+.partner-card.active .partner-content {
+    max-height: 200px; /* Enough space for logos */
+    border-top: 1px solid var(--color-gray-100);
+}
+
+.logos-container {
+    padding: 1.25rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    justify-items: center;
+    align-items: center;
 }
 
 .partner-logo {
     max-width: 100%;
-    max-height: 100%;
+    height: 50px; /* Fixed height for consistency */
     object-fit: contain;
-    filter: grayscale(100%);
-    transition: filter var(--transition-default);
+    filter: grayscale(100%); /* Optional: B&W until active */
+    opacity: 0.7;
+    transition: all 0.3s ease;
 }
 
-.partner-card:hover .partner-logo,
 .partner-card.active .partner-logo {
     filter: grayscale(0%);
-}
-
-.partner-details {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    background-color: var(--color-lightbg);
-    border-top: 1px solid var(--color-lightaccent);
-}
-
-.partner-card.active .partner-details {
-    max-height: 500px;
-}
-
-.partner-details-content {
-    padding: 1.5rem;
-}
-
-.partner-details h4 {
-    color: var(--color-primary);
-    font-size: 1.125rem;
-    margin-bottom: 1rem;
-    font-weight: 700;
-}
-
-.partner-list {
-    list-style: none;
-    margin-bottom: 1.5rem;
-}
-
-.partner-list li {
-    padding: 0.375rem 0;
-    color: var(--color-gray-700);
-    font-size: 0.875rem;
-    position: relative;
-    padding-left: 1.25rem;
-}
-
-.partner-list li::before {
-    content: "✓";
-    position: absolute;
-    left: 0;
-    color: var(--color-accent);
-    font-weight: bold;
-}
-
-.partner-logos-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0.75rem;
-    padding-top: 1rem;
-    border-top: 1px solid var(--color-gray-200);
-}
-
-.partner-detail-logo {
-    width: 100%;
-    height: 2.5rem;
-    object-fit: contain;
-    padding: 0.5rem;
-    background-color: var(--color-white);
-    border-radius: var(--radius-sm);
-    border: 1px solid var(--color-gray-200);
-    transition: transform var(--transition-default);
-}
-
-.partner-detail-logo:hover {
-    transform: scale(1.05);
-}
-
-/* Expand/Collapse Indicator */
-.partner-card::after {
-    content: '';
-    position: absolute;
-    bottom: 0.75rem;
-    right: 0.75rem;
-    width: 1.5rem;
-    height: 1.5rem;
-    background-color: var(--color-gray-100);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all var(--transition-default);
-}
-
-.partner-card::before {
-    content: '+';
-    position: absolute;
-    bottom: 0.75rem;
-    right: 0.75rem;
-    width: 1.5rem;
-    height: 1.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--color-gray-600);
-    font-weight: 700;
-    font-size: 1.25rem;
-    z-index: 2;
-    transition: all var(--transition-default);
-}
-
-.partner-card.active::before {
-    content: '−';
-    color: var(--color-white);
-}
-
-.partner-card.active::after {
-    background-color: var(--color-accent);
+    opacity: 1;
 }
