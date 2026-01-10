@@ -109,6 +109,52 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // ==========================
+    // 1. SCROLL PROGRESS BAR
+    // ==========================
+    const progressBar = document.getElementById('scroll-progress');
+    
+    window.addEventListener('scroll', () => {
+        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrollPercentage = (scrollTop / scrollHeight) * 100;
+        
+        if (progressBar) {
+            progressBar.style.width = scrollPercentage + '%';
+        }
+    });
+
+    // ==========================
+    // 3. 3D TILT HOVER EFFECT
+    // ==========================
+    const tiltCards = document.querySelectorAll('.project-card, .work-card, .mission-vision-card');
+
+    tiltCards.forEach(card => {
+        card.classList.add('tilt-card'); // Add CSS class for perspective
+        
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            // Calculate rotation (max 10 degrees)
+            const xRotation = -((y - rect.height / 2) / rect.height * 10);
+            const yRotation = ((x - rect.width / 2) / rect.width * 10);
+            
+            card.style.transform = `perspective(1000px) scale(1.02) rotateX(${xRotation}deg) rotateY(${yRotation}deg)`;
+        });
+
+        card.addEventListener('mouseleave', () => {
+            // Reset position smoothly
+            card.style.transform = 'perspective(1000px) scale(1) rotateX(0) rotateY(0)';
+            card.style.transition = 'transform 0.5s ease';
+        });
+
+        card.addEventListener('mouseenter', () => {
+            card.style.transition = 'none'; // Remove transition for instant follow
+        });
+    });
+
+    // ==========================
     // ✅ CONTACT MODAL
     // ==========================
     const modal = document.getElementById('contact-modal');
