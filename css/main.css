@@ -1410,3 +1410,317 @@ a {
     filter: grayscale(0%);
     opacity: 1;
 }
+
+
+/* --- NEW HEADER STYLES --- */
+
+/* --- FLOATING HEADER STYLES --- */
+
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    /* Transparent background to make elements look like they are floating */
+    background-color: transparent; 
+    z-index: 1000;
+    padding: 1.5rem 0; /* More spacing from top */
+    transition: all 0.3s ease;
+}
+
+/* Optional: Add a subtle background only when scrolling down so text remains readable */
+.site-header.scrolled {
+    padding: 0.75rem 0;
+    background-color: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    box-shadow: var(--shadow-sm);
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative; /* Essential for centering the nav */
+}
+
+/* 1. LOGO STYLES */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    z-index: 10; /* Keep above nav */
+}
+
+.logo-image {
+    height: 50px;
+    width: auto;
+    display: block;
+    /* Optional: Drop shadow to make logo pop on background */
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+}
+
+/* 2. CENTER PILL NAVIGATION (The Floating Island) */
+.desktop-nav {
+    display: none; /* Hidden on mobile */
+}
+
+@media (min-width: 992px) {
+    .desktop-nav {
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
+        
+        /* THE CAPSULE STYLE */
+        /* Using your lightbg color but semi-transparent */
+        background-color: rgba(202, 240, 248, 0.85); 
+        backdrop-filter: blur(8px); /* Glass blur effect */
+        -webkit-backdrop-filter: blur(8px);
+        
+        padding: 0.4rem 0.5rem;
+        border-radius: 100px; /* Full rounded pill */
+        
+        /* Thin border to define edges */
+        border: 1px solid rgba(255, 255, 255, 0.6);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+
+        /* Absolute Center Positioning */
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 5;
+    }
+
+    .nav-link {
+        color: var(--color-gray-600);
+        font-weight: 500;
+        font-size: 0.95rem;
+        padding: 0.6rem 1.5rem;
+        border-radius: 100px; /* Links are also pills */
+        transition: all 0.3s ease;
+        text-decoration: none;
+    }
+
+    /* Remove old underline styles if present */
+    .nav-link::after { display: none; }
+
+    .nav-link:hover {
+        color: var(--color-primary);
+        background-color: rgba(255, 255, 255, 0.4);
+    }
+
+    /* THE ACTIVE STATE (Solid White Bubble) */
+    .nav-link.active {
+        background-color: var(--color-white);
+        color: var(--color-primary);
+        font-weight: 600;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+}
+
+/* 3. RIGHT SIDE (Button) */
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    z-index: 10;
+}
+
+.cta-button {
+    display: none;
+    align-items: center;
+    gap: 0.5rem;
+    
+    /* White Pill Style for Button */
+    background-color: var(--color-white);
+    color: var(--color-primary);
+    padding: 0.75rem 1.75rem;
+    border-radius: 100px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    
+    /* Border and Shadow */
+    border: 1px solid rgba(255,255,255, 0.8);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+}
+
+@media (min-width: 768px) {
+    .cta-button { display: flex; }
+}
+
+.cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+    color: var(--color-accent);
+}
+
+/* Mobile Menu Toggle */
+.mobile-menu-btn {
+    background: var(--color-white);
+    border: none;
+    color: var(--color-primary);
+    font-size: 1.5rem;
+    cursor: pointer;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-md);
+}
+
+@media (min-width: 992px) {
+    .mobile-menu-btn { display: none; }
+}
+
+/* Mobile Nav Drawer (Standard) */
+.mobile-nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: var(--color-white);
+    border-top: 1px solid var(--color-gray-100);
+    box-shadow: var(--shadow-lg);
+    max-height: 0;
+    overflow: hidden;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.3s ease-out;
+}
+
+.mobile-nav.active {
+    max-height: 25rem;
+    visibility: visible;
+    opacity: 1;
+}
+
+/* --- FLOATING HEADER WITH BLUR --- */
+
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 1rem 0;
+    transition: all 0.3s ease;
+
+    /* GLASSMORPHISM EFFECT (Blurry Background for Nav Only) */
+    background: rgba(255, 255, 255, 0.2); /* Slight white tint */
+    backdrop-filter: blur(12px);          /* Blurs the image BEHIND the nav */
+    -webkit-backdrop-filter: blur(12px);  /* For Safari support */
+    
+    /* Optional: Subtle border to separate it from the content */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Ensure the logo is clearly visible */
+.logo-image {
+    height: 50px;
+    width: auto;
+    display: block;
+    /* Adds a drop shadow to the logo itself for extra contrast */
+    filter: drop-shadow(0 2px 4px rgba(255, 255, 255, 0.8)); 
+}
+
+/* --- HORIZONTAL STACKING PROJECTS --- */
+
+/* 1. The Wrapper: Taller than viewport to allow scrolling */
+.projects-scroll-wrapper {
+    height: 200vh; /* 300vh allows enough space to scroll through 3 cards */
+    position: relative;
+}
+
+/* 2. The Viewport: Sticks to top and holds the cards */
+.sticky-viewport {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center; /* Center cards vertically */
+    overflow: hidden;    /* Hide cards that are off-screen */
+    background-color: var(--color-lightbg);
+}
+
+/* 3. The Card Container: Holds the stack */
+.stacked-cards-container {
+    position: relative;
+    width: 100%;
+    max-width: 1000px;
+    height: 500px; /* Fixed height for the card area */
+    margin: 0 auto;
+}
+
+/* 4. Individual Cards: Absolute Positioned on top of each other */
+.project-stack-card {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Default state: Card 1 is visible, others will be pushed right by JS */
+    transform: translateX(0); 
+    transition: transform 0.1s linear; /* Smooth movement */
+    will-change: transform;
+}
+
+/* 5. Card styling (similar to your old cards but bigger) */
+.stack-card-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 100%;
+    background: var(--color-white);
+    border-radius: var(--radius-2xl);
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+.stack-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.stack-image i {
+    font-size: 5rem;
+    color: var(--color-white);
+}
+
+.stack-content {
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.stack-content h3 {
+    font-size: 2rem;
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+}
+
+/* Mobile Responsiveness for Stack */
+@media (max-width: 768px) {
+    .stacked-cards-container {
+        height: 600px;
+        width: 95%;
+    }
+    
+    .stack-card-inner {
+        grid-template-columns: 1fr;
+        grid-template-rows: 200px 1fr;
+    }
+
+    .stack-content {
+        padding: 1.5rem;
+    }
+    
+    .stack-content h3 {
+        font-size: 1.5rem;
+    }
+}
